@@ -23,6 +23,7 @@ if str(ROOT) not in sys.path:
     sys.path.append(str(ROOT))  # add ROOT to PATH
 ROOT = Path(os.path.relpath(ROOT, Path.cwd()))  # relative
 
+
 from models.experimental import attempt_load
 from utils.datasets import IMG_FORMATS, VID_FORMATS, LoadImages, LoadStreams
 from utils.general import (
@@ -78,7 +79,6 @@ def run(
     save_img = not nosave and not source.endswith(".txt")  # save inference images
     is_file = Path(source).suffix[1:] in (IMG_FORMATS + VID_FORMATS)
     is_url = source.lower().startswith(("rtsp://", "rtmp://", "http://", "https://"))
-    webcam = source.isnumeric() or source.endswith(".txt") or (is_url and not is_file)
 
     # Directories
     save_dir = increment_path(Path(project) / name, exist_ok=exist_ok)  # increment run
