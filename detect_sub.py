@@ -213,9 +213,8 @@ def run(
 
             # Stream results
             im0 = annotator.result()
-            if view_img:
-                cv2.imshow(str(p), im0)
-                cv2.waitKey(1)  # 1 millisecond
+            cv2.imshow(str(p), im0)
+            cv2.waitKey(1)  # 1 millisecond
 
     # Print results
     t = tuple(x / seen * 1e3 for x in dt)  # speeds per image
